@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Book Inventory Managment</title>
+</head>
+{% load static %}
+<body>
+    
+    <h1>Book Inventory Managment</h1>
+    {% comment %} {% for book in books %}
+    <p>books:{{book.kind}}</p>
+    <p>No. of Books:<b>{{book.totalItems}}</b></p>>
+    <p>BOOK ID:<b>{{book.items}}</b></p>>
+    <hr>
+    {% endfor %} {% endcomment %}
+
+    <div class="container">
+
+        
+        
+            {% comment %} <h2> template code: {{books.items.1.kind}} </h2>
+          <p>books:{{books.kind}}</p>
+          <p>No. of Books:<b>{{books.totalItems}}</b></p>>
+          <p>BOOK items:<b>
+          </b></p>> {% endcomment %}
+
+
+
+          {% for i in books.items  %}
+          
+          <div class="card"> 
+            <img style="height: 10%;" src='{{i.volumeInfo.imageLinks.thumbnail}}' class="card-img-top" alt="...">
+          
+            <div class="card-body">
+              <h5 class="card-title">{{i.volumeInfo.title}}</h5>
+              <p class="card-text"><b>Publisher:&nbsp;</b>{{i.volumeInfo.publisher}}</p>
+              <p class="card-text"><b>Authers:&nbsp;</b>{{i.volumeInfo.authors}}</p>
+              <p class="card-text "><b>Year:&nbsp;</b>{{i.volumeInfo.publishedDate}}</p>
+              <a href="#" class="btn btn-primary">Issue this book</a>
+            </div>
+          </div>
+          <hr>
+        
+
+          {% endfor %}
+
+          
+          
+          
+
+    </div>
+    
+   
+
+   
+
+</body>
+</html>
